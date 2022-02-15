@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="comparacao.css">
+    <title>Desafio Aula 03 - Comparação</title>
+</head>
+<body>
+    <h1>Desafio Aula 03 - Comparação</h1>
+    <hr>
+    <h3>Utilize os campos abaixo para realizar a comparação entre dois números. Opções disponíveis:</h3>
+    <ul type="none">
+        <li><strong>></strong>&emsp;&ensp;(Maior Que)</li>
+        <li><strong><</strong>&emsp;&ensp;(Menor Que)</li>
+        <li><strong>>=</strong>&emsp;(Maior ou Igual)</li>
+        <li><strong>>=</strong>&emsp;(Menor ou Igual)</li>
+        <li><strong>==</strong>&emsp;(Igual)</li>
+        <li><strong>!=</strong>&emsp; (Diferente)</li>
+    </ul>
+
+    <h4>Clique no ? para ver o resultado.</h4>
+
+    <label for="">Número 1:&ensp;</label>
+    <input type="number" id="num1" autofocus required>
+
+    <label for="">&ensp;é&ensp;</label>
+    <select name="comparacao" id="comparacao">
+        <option value=">">></option>
+        <option value="<"><</option>
+        <option value=">=">>=</option>
+        <option value="<=">>=</option>
+        <option value="==">==</option>
+        <option value="!=">!=</option>
+    </select>
+
+    <label for="">&ensp;ao Número 2:&ensp;</label>
+    <input type="number" id="num2" required>
+
+    <label for="">&ensp;</label>
+    <button onclick="comparar()">?</button>
+
+    <label for="">&ensp;</label>
+    <input type="text" id="resultado" class="resultado" disabled>
+
+    <script src="comparacao.js"></script>
+</body>
+</html>
