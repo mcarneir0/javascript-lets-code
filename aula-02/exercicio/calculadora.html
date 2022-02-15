@@ -10,17 +10,17 @@
     <h1>Calculadora</h1>
     <hr>
 
-    <label for="">Digite o primeiro número: </label>
-    <input type="text" id="num1" autofocus>
+    <label>Digite o primeiro número: </label>
+    <input type="number" id="num1" autofocus required>
     <br><br>
-    <label for="">Digite o segundo número: </label>
-    <input type="text" id="num2">
+    <label>Digite o segundo número: </label>
+    <input type="number" id="num2" required>
 
-    <button onclick="calcular(num1, num2)">Calcular</button>
+    <button onclick="calcular()">Calcular</button>
     
     <hr>
-    <label for="">Resultado: </label>
-    <input type="text" id="resultado">
+    <label>Resultado: </label>
+    <input type="text" id="resultado" readonly>
     <hr>
 
     <script src="calculadora.js"></script>
