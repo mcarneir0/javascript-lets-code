@@ -5,6 +5,7 @@
 */
 
 const carros = [];
+const tabela = document.getElementById("tabela");
 
 function adicionar() {
     const carro = {
@@ -14,9 +15,23 @@ function adicionar() {
         situacao: document.getElementById("situacao").value,
     }
     carros.push(carro);
-    console.log("=== CARROS ===");
-    console.table(carros);
+    mostra_tabela();
     atualiza_pagina();
+}
+
+function mostra_tabela() {
+    tabela.innerHTML = carros.map(
+        function(carro) {
+            dados =
+                `<tbody align="center">
+                    <td>${carro.modelo}</td>
+                    <td>${carro.ano}</td>
+                    <td>${carro.cor}</td>
+                    <td>${carro.situacao}</td>
+                </tbody>`;
+            return dados;
+        }
+    ).join("");
 }
 
 function atualiza_pagina() {
@@ -26,17 +41,3 @@ function atualiza_pagina() {
     document.getElementById("situacao").value = "novo";
     document.getElementById("modelo").focus();
 }
-
-// function listar_carros() {
-//     const lista = document.getElementById("lista");
-    
-//     //  Limpa a lista antes de exibí-la
-//     lista.textContent = null;
-
-//     //  Preenche a lista com os carros
-//     carros.forEach(function(nome) {
-//         let li = document.createElement("li");
-//         lista.appendChild(li);
-//         li.innerHTML += nome;
-//     });
-// }
