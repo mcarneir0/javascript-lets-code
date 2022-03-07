@@ -1,8 +1,10 @@
 const carros = [];
 const tabela = document.getElementById("tabela");
+let id = 1;
 
 function adicionar() {
     const carro = {
+        id: id++,
         modelo: document.getElementById("modelo").value,
         ano: document.getElementById("ano").value,
         cor: document.getElementById("cor").value,
@@ -18,6 +20,7 @@ function mostra_tabela() {
         function(carro) {
             dados =
                 `<tbody align="center">
+                    <td>${carro.id}</td>
                     <td>${carro.modelo}</td>
                     <td>${carro.ano}</td>
                     <td>${carro.cor}</td>
@@ -39,7 +42,7 @@ function atualiza_pagina() {
 /*  TODO Avaliação
 
     [X] copiar exercicio da loja de carros
-    [] add uma coluna com um id (ao lado esquerdo do modelo)
+    [X] add uma coluna com um id (ao lado esquerdo do modelo)
     [] add no input um campo para receber o preço
     [] exibir uma coluna com o preço
     [] exibir o valor total de todos os veículos cadastrados ( usar reduce)
