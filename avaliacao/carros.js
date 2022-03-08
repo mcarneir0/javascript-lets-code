@@ -51,6 +51,11 @@ function atualiza_pagina() {
     document.getElementById("modelo").focus();
 }
 
+function decimaisPreco() {
+    const preco = document.getElementById("preco");
+    return  preco.value = parseFloat(preco.value).toFixed(2);
+}
+
 /*  TODO Avaliação
 
     [X] copiar exercicio da loja de carros
