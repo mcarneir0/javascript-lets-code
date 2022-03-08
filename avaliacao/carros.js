@@ -33,7 +33,7 @@ function mostra_tabela() {
                     <td>${carro.id}</td>
                     <td>${carro.modelo}</td>
                     <td>${carro.ano}</td>
-                    <td>${carro.cor}</td>
+                    <td style="background-color: ${carro.cor};"></td>
                     <td>${carro.situacao}</td>
                     <td>${moeda.format(carro.preco)}</td>
                 </tbody>`;
