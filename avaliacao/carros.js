@@ -49,6 +49,20 @@ function atualiza_pagina() {
     document.getElementById("cor").value = "#000000";
     document.getElementById("situacao").value = "novo";
     document.getElementById("modelo").focus();
+    valor_total();
+}
+
+function valor_total() {
+    valores = [];
+    carros.forEach( carro => valores.push(carro.preco));
+    
+    document.getElementById("valor_carros").textContent = moeda.format(
+        valores.reduce(
+            function (total, atual) {
+                return total += atual;
+            }
+        )
+    );
 }
 
 function decimaisPreco() {
@@ -62,6 +76,6 @@ function decimaisPreco() {
     [X] add uma coluna com um id (ao lado esquerdo do modelo)
     [X] add no input um campo para receber o preço
     [X] exibir uma coluna com o preço
-    [] exibir o valor total de todos os veículos cadastrados (usar reduce)
+    [X] exibir o valor total de todos os veículos cadastrados (usar reduce)
 
 */
