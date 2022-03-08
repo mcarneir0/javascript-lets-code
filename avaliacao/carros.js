@@ -1,6 +1,7 @@
 const carros = [];
 const tabela = document.getElementById("tabela");
 let id = 1;
+moeda = new Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"});
 
 function adicionar() {
 
@@ -8,16 +9,16 @@ function adicionar() {
     const ano = document.getElementById("ano").value;
     const cor = document.getElementById("cor").value;
     const situacao = document.getElementById("situacao").value;
-
+    const preco = (document.getElementById("preco").value == "") ? 0 : parseFloat(parseFloat(document.getElementById("preco").value).toFixed(2));
+    
     const carro = {
         id: id++,
         modelo: modelo,
         ano: ano,
         cor: cor,
-        situacao: situacao
+        situacao: situacao,
+        preco: preco
     };
-    if (document.getElementById("preco").value == 0) { carro.preco = "R$ 0"}
-    else {carro.preco = "R$ " + document.getElementById("preco").value};
     
     carros.push(carro);
     mostra_tabela();
@@ -34,7 +35,7 @@ function mostra_tabela() {
                     <td>${carro.ano}</td>
                     <td>${carro.cor}</td>
                     <td>${carro.situacao}</td>
-                    <td>${carro.preco}</td>
+                    <td>${moeda.format(carro.preco)}</td>
                 </tbody>`;
             return dados;
         }
@@ -50,21 +51,12 @@ function atualiza_pagina() {
     document.getElementById("modelo").focus();
 }
 
-//  Adiciona pontuação no campo preço. ex: 123,456.78
-document.getElementById("preco").onblur = function () {    
-    this.value = parseFloat(this.value.replace(/,/g, "."))
-                    .toFixed(2)
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    document.getElementById("preco").value = this.value;
-}
-
 /*  TODO Avaliação
 
     [X] copiar exercicio da loja de carros
     [X] add uma coluna com um id (ao lado esquerdo do modelo)
     [X] add no input um campo para receber o preço
     [X] exibir uma coluna com o preço
-    [] exibir o valor total de todos os veículos cadastrados ( usar reduce)
+    [] exibir o valor total de todos os veículos cadastrados (usar reduce)
 
 */
